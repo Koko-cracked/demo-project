@@ -1,38 +1,51 @@
 // src/pages/index.tsx
+import { useState } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import styles from '../styles/Home.module.css';
+import styles from '../styles/Home.module.css'; // Import the CSS module
 
 const inter = Inter({ subsets: ['latin'] });
 
+const images = [
+  '/jerseynum1.webp',
+  '/jerseynum2.webp',
+  '/landing-background.jpg',
+  '/landing-background.jpg'
+];
+
 export default function Home() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+  };
+
   return (
-    <div className={styles.pageWrapper}> {/* Wrapper for the entire page */}
+    <div className={styles.pageWrapper}>
       <Header />
-      <main className={`${styles.main} ${inter.className}`}>
-        {/* Main content */}
-        {/* Auto-Scrolling Image Section */}
-        <div className={styles.autoScrollSection}>
-          <div className={styles.scrollContainer}>
-            <Image src="/landing-background.jpg" alt="Item 1" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 2" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 3" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 4" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 5" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 6" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 7" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 8" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 1" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 2" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 3" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 4" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 5" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 6" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 7" width={200} height={300} />
-            <Image src="/landing-background.jpg" alt="Item 8" width={200} height={300} />
+      <main className={`main ${inter.className}`}>
+        <div className={styles.scrollContainer}>
+          <div className={styles.scrollImages} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
+            {images.map((src, index) => (
+              <div className={styles.scrollImage} key={index}>
+                <Image src={src} alt={`Item ${index + 1}`} layout="fill" objectFit="cover" />
+                {/* Add Number Overlay */}
+                <span className={styles.imageNumber}>{index + 1}</span>
+              </div>
+            ))}
           </div>
+          <button className={`${styles.scrollButton} ${styles.left}`} onClick={handlePrev}>
+            &lt;
+          </button>
+          <button className={`${styles.scrollButton} ${styles.right}`} onClick={handleNext}>
+            &gt;
+          </button>
         </div>
         <div className={styles.cardSection}>
           <div className={styles.card}>
@@ -44,11 +57,8 @@ export default function Home() {
             <p>Don't miss out on huge discounts on select items!</p>
           </div>
         </div>
-
-
-
       </main>
-      <Footer /> {/* Ensure Footer is within the main wrapper */}
+      <Footer />
     </div>
   );
 }
