@@ -7,16 +7,19 @@ body {
     width: 100%;
 }
 
-
+/* src/styles/globals.css */
 body {
-    margin-top: 20px;
-    padding: 20px;
-    background-image: '/landing-background.jpg';
-    /* Adjust the path as needed */
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
+    background-image: url('/landing-background.jpg');
+    /* Ensure the path is correct */
     background-size: cover;
+    /* Cover the whole page */
     background-position: center;
-    background-attachment: fixed;
-    /* Keeps the background fixed on scroll */
-    color: rgb(81, 61, 61);
-    font-family: 'Inter', sans-serif;
+    /* Center the background */
+    background-repeat: no-repeat;
+    /* No repeat of the image */
+    height: 100%;
+    width: 100%;
 }

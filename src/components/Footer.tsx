@@ -1,42 +1,56 @@
-// src/components/Footer.tsx
-import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faTwitter, faInstagram } from '@fortawesome/free-brands-svg-icons';
-import styles from '../styles/Footer.module.css'; // Import the CSS module
+import { faFacebookF, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faPhone, faEnvelope, faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
+import styles from '../styles/Footer.module.css';
 
 export default function Footer() {
     return (
         <footer className={styles.footer}>
-            {/* Left Section: Logo */}
-            <div className={styles.logo}>
-                <Image
-                    src="/company-logo.png" // Ensure this path points to your logo file with a transparent background
-                    alt="Logo"
-                    width={50}
-                    height={50}
-                />
-                <p>© 2024 Retro Kit Nepal. All rights reserved.</p>
-            </div>
+            <div className={styles.footerSection}>
+                {/* Customer Support Section */}
+                <div className={styles.footerColumn}>
+                    <h3>Customer Support</h3>
+                    <ul>
+                        <li>FAQ & Contact</li>
+                        <li>Order Tracking</li>
+                        <li>My Account</li>
+                        <li>Delivery & Shipping</li>
+                        <li>Returns</li>
+                        <li>Cookies & Privacy Policy</li>
+                    </ul>
+                </div>
 
-            {/* Middle Section: Navigation Links */}
-            <div className={styles.navLinks}>
-                <a href="/">Home</a>
-                <a href="/about">About Us</a>
-                <a href="/products">Products</a>
-                <a href="/contact">Contact</a>
-            </div>
+                {/* Visit the Store Section */}
+                <div className={styles.footerColumn}>
+                    <h3>Visit the Store</h3>
+                    <ul>
+                        <li>
+                            <FontAwesomeIcon icon={faMapMarkerAlt} /> 123 Street Name, City, Country
+                        </li>
+                    </ul>
+                </div>
 
-            {/* Right Section: Social Media Icons */}
-            <div className={styles.socialIcons}>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faFacebookF} size="lg" />
-                </a>
-                <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faTwitter} size="lg" />
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
-                    <FontAwesomeIcon icon={faInstagram} size="lg" />
-                </a>
+                {/* Useful Links Section */}
+                <div className={styles.footerColumn}>
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li>Sell Shirts</li>
+                        <li>About Us</li>
+                        <li>Requests</li>
+                        <li>Careers</li>
+                        <li>Marketing Enquiries</li>
+                    </ul>
+                </div>
+
+                {/* Follow Us Section */}
+                <div className={styles.footerColumn}>
+                    <h3>Follow Us</h3>
+                    <div className={styles.socialIcons}>
+                        <FontAwesomeIcon icon={faFacebookF} className={styles.socialIcon} />
+                        <FontAwesomeIcon icon={faInstagram} className={styles.socialIcon} />
+                        <FontAwesomeIcon icon={faTwitter} className={styles.socialIcon} />
+                    </div>
+                </div>
             </div>
         </footer>
     );

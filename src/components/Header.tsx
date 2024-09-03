@@ -1,42 +1,41 @@
 // src/components/Header.tsx
-import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
-import styles from '../styles/Header.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
+import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch, faUser, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import styles from '../styles/Header.module.css'; // Import the CSS module
+
 export default function Header() {
     return (
-        <header className={`${styles.header} ${inter.className}`}>
-            {/* Logo Section */}
+        <header className={styles.header}>
+            {/* Left Section: Logo */}
             <div className={styles.logo}>
                 <Image
-                    src="/company-logo.png" // Replace with your logo path in the public directory
+                    src="/company-logo.png" // Ensure this path points to your logo file
                     alt="Logo"
                     width={50}
                     height={50}
                 />
             </div>
 
-            {/* Search Bar Section */}
-            <div className={styles.search}>
-                <input
-                    type="text"
-                    placeholder="Search..."
-                    className={styles.searchInput}
-                    aria-label="Search"
-                />
-                <button className={styles.searchButton} aria-label="Search Button">
+            {/* Center Section: Search Bar */}
+            <div className={styles.searchContainer}>
+                <input type="text" placeholder="Search..." className={styles.searchInput} />
+                <button className={styles.searchButton}>
                     <FontAwesomeIcon icon={faSearch} />
                 </button>
             </div>
 
-            {/* Navbar Icon Section */}
-            <div className={styles.navIcon}>
-                <button className={styles.navButton} aria-label="Menu Button">
-                    <FontAwesomeIcon icon={faBars} />
+            {/* Right Section: User and Cart Icons */}
+            <div className={styles.icons}>
+                <button className={styles.iconButton}>
+                    <FontAwesomeIcon icon={faUser} />
+                </button>
+                <button className={styles.iconButton}>
+                    <FontAwesomeIcon icon={faShoppingCart} />
                 </button>
             </div>
         </header>

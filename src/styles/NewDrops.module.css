@@ -1,0 +1,100 @@
+/* src/styles/NewDrops.module.css */
+
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 2.5rem;
+}
+
+.row {
+    margin-bottom: 40px;
+    position: relative;
+    /* For positioning buttons */
+}
+
+.rowTitle {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: left;
+    color: #333;
+}
+
+.cardWrapper {
+    display: flex;
+    overflow: hidden;
+    /* Hide overflow to show one card at a time */
+    position: relative;
+    width: 100%;
+    height: 350px;
+    /* Adjust height as needed */
+}
+
+.cardGrid {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    height: 300px;
+    width: 250px;
+    /* Fixed width to show one card */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    position: relative;
+    /* For positioning content within the card */
+    margin: 0 10px;
+}
+
+.cardImage {
+    position: relative;
+    width: 100%;
+    height: 150px;
+    /* Adjust as needed */
+    margin-bottom: 10px;
+}
+
+.cardTitle {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #333;
+}
+
+.cardPrice {
+    color: #888;
+    font-size: 1rem;
+}
+
+.navButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    color: #fff;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 10;
+}
+
+.navButton.left {
+    left: 10px;
+}
+
+.navButton.right {
+    right: 10px;
+}
