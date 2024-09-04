@@ -16,7 +16,7 @@
 }
 
 .scrollContainer {
-    padding-top: 80px;
+
     position: relative;
     width: 80%;
     /* Reduce the width to make the scroll container smaller */
@@ -28,7 +28,7 @@
     /* Center the container */
     overflow: hidden;
     /* Hide overflow for clean edges */
-    border-radius: 10px;
+    border-radius: 50px 50px 50px 50px;
     /* Optional: Add rounded corners for better appearance */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     /* Optional: Add shadow for depth */
@@ -139,6 +139,79 @@
 .card p {
     color: #555;
     font-size: 1rem;
+}
+
+/* New styles for Legacy Jersey Section */
+.legacySection {
+    margin-top: 40px;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.legacySection h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.legacyJerseyRow {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    /* Allow horizontal scrolling if needed */
+    gap: 20px;
+    justify-content: flex-start;
+    /* Align items to the start */
+    height: 8cm;
+    /* Set height to 8cm */
+    padding: 10px 20px;
+    background-color: #f9f9f9;
+    /* Background color to differentiate the section */
+    width: 100vw;
+    /* Full width of the viewport */
+}
+
+.jerseyCard {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    /* Adjust to match the dimensions in new-drops.tsx */
+    height: 300px;
+    /* Adjust to match the dimensions in new-drops.tsx */
+    flex-shrink: 0;
+    /* Prevent shrinking when scrolling */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.jerseyCard h3 {
+    margin: 10px 0 5px;
+    font-size: 1em;
+    /* Adjust font size to fit the card */
+}
+
+.jerseyCard p {
+    margin-bottom: 10px;
+    font-size: 0.9em;
+    /* Adjust font size to fit the card */
+}
+
+.addToCartButton {
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 0.9em;
+    /* Adjust font size for consistency */
+}
+
+.addToCartButton:hover {
+    background-color: #005bb5;
 }
 
 /* Footer Styles */
