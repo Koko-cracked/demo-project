@@ -10,9 +10,9 @@ const inter = Inter({ subsets: ['latin'] });
 
 const images = [
   '/landing-background.jpg',
+  '/jerseynum2.webp',
   '/landing-background.jpg',
-  '/landing-background.jpg',
-  '/landing-background.jpg',
+  '/jerseynum1.webp',
 ];
 
 // Sample data for "Legacy Jersey" cards
@@ -25,8 +25,7 @@ const legacyJerseys = [
   { id: 6, image: '/legacy-jersey3.jpg', name: 'Franc Beckenbauer Germany', price: '$55' },
   { id: 7, image: '/legacy-jersey1.jpg', name: 'David Beckham Man Utd', price: '$50' },
   { id: 8, image: '/legacy-jersey1.jpg', name: 'David Beckham Man Utd', price: '$50' },
-  { id: 9, image: '/legacy-jersey1.jpg', name: 'David Beckham Man Utd', price: '$50' }
-  // Add more jerseys as needed
+  { id: 9, image: '/legacy-jersey1.jpg', name: 'David Beckham Man Utd', price: '$50' },
 ];
 
 export default function Home() {
@@ -43,7 +42,7 @@ export default function Home() {
   return (
     <Layout>
       {/* Scroll Container */}
-      <div className={styles.scrollContainer}>
+      <section className={styles.scrollContainer}>
         <div className={styles.scrollImages} style={{ transform: `translateX(-${currentIndex * 100}%)` }}>
           {images.map((src, index) => (
             <div className={styles.scrollImage} key={index}>
@@ -57,40 +56,40 @@ export default function Home() {
         <button className={`${styles.scrollButton} ${styles.right}`} onClick={handleNext}>
           &gt;
         </button>
-      </div>
+      </section>
 
       {/* Cards Section */}
-      <div className={styles.cardSection}>
-        {/* New Drops Card */}
+      <section className={styles.cardSection}>
         <Link href="/new-drops">
           <div className={styles.card}>
             <h2>New Drops</h2>
             <p>Check out the latest collection now available in store!</p>
           </div>
         </Link>
-
-        {/* Clearance Sale Card */}
         <div className={styles.card}>
           <h2>Clearance Sale</h2>
           <p>Don't miss out on huge discounts on select items!</p>
         </div>
-      </div>
+      </section>
 
       {/* New Row: Legacy Jersey */}
-      <div className={styles.legacySection}>
-        <h2>Legacy Jersey</h2>
+      <section className={styles.legacySection}>
+        <h2 className={styles.legacyTitle}>Legacy Jersey</h2>
         <div className={styles.legacyJerseyRow}>
           {legacyJerseys.map((jersey) => (
             <div key={jersey.id} className={styles.jerseyCard}>
-              <Image src={jersey.image} alt={jersey.name} width={80} height={100} objectFit="cover" />
-              <h3>{jersey.name}</h3>
-              <p>{jersey.price}</p>
+              <Image src={jersey.image} alt={jersey.name} width={200} height={300} objectFit="cover" className={styles.cardImage} />
+              <h3 className={styles.cardTitle}>{jersey.name}</h3>
+              <p className={styles.cardPrice}>{jersey.price}</p>
               {/* Add to cart icon (use FontAwesome or another icon library) */}
-              <button className={styles.addToCartButton}>Add to Cart</button>
+              <button className={styles.addToCartButton}>
+                <i className="fas fa-cart-plus"></i> Add to Cart
+              </button>
             </div>
           ))}
         </div>
-      </div>
+        <button className={styles.viewMoreButton}>View More Jerseys</button>
+      </section>
     </Layout>
   );
 }

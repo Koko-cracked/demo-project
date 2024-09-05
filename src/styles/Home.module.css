@@ -1,129 +1,81 @@
 /* src/styles/Home.module.css */
-.pageWrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
 
-.main {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    padding: 20px;
-    /* Add padding to avoid content touching edges */
-    background: transparent;
-    /* Ensure background is transparent to show the full-page background */
-}
-
+/* Scroll Container */
 .scrollContainer {
-
     position: relative;
-    width: 80%;
-    /* Reduce the width to make the scroll container smaller */
-    max-width: 800px;
-    /* Max width to keep it consistent */
-    height: 500px;
-    /* Increase the height to make it taller */
-    margin: 20px auto;
-    /* Center the container */
     overflow: hidden;
-    /* Hide overflow for clean edges */
-    border-radius: 50px 50px 50px 50px;
-    /* Optional: Add rounded corners for better appearance */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Optional: Add shadow for depth */
+    width: 100%;
+    height: 1000px;
+    /* Adjust height as needed */
+    margin: 20px 0;
 }
 
 .scrollImages {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    /* Smooth transition for sliding */
+    transition: transform 0.5s ease;
     width: 100%;
+    /* Make the width 100% */
     height: 100%;
-    /* Ensure container fills the height */
+    /* Make the height 100% */
 }
 
 .scrollImage {
-    min-width: 100%;
-    height: 100%;
-    /* Make images fill the height of the container */
+    flex: 0 0 100%;
+    /* Each image takes 100% width */
     position: relative;
-}
-
-.scrollImage img {
     width: 100%;
-    /* Ensure image fills the container's width */
     height: 100%;
-    /* Ensure image fills the container's height */
+    overflow: hidden;
+    /* Hide overflow */
+}
+
+/* Ensure Image takes up entire container without cropping */
+.scrollImage img {
     object-fit: cover;
-    /* Maintain aspect ratio while covering the container */
+    /* Use 'contain' to prevent cropping */
+    width: 100%;
+    height: 100%;
 }
 
-.imageNumber {
-    position: absolute;
-    bottom: 20px;
-    /* Position at the bottom of the image */
-    right: 20px;
-    /* Position at the right of the image */
-    background-color: rgba(0, 0, 0, 0.6);
-    /* Semi-transparent background */
-    color: #fff;
-    /* White text color */
-    padding: 5px 10px;
-    /* Padding for better visibility */
-    border-radius: 5px;
-    /* Rounded corners */
-    font-size: 1.2rem;
-    /* Adjust font size */
-    z-index: 5;
-    /* Ensure number appears above the image */
-}
-
+/* Scroll Buttons */
 .scrollButton {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     background: rgba(0, 0, 0, 0.5);
+    color: white;
     border: none;
-    color: #fff;
-    font-size: 24px;
     cursor: pointer;
     padding: 10px;
     z-index: 10;
-    border-radius: 4px;
-    /* Add border radius for better appearance */
 }
 
 .scrollButton.left {
     left: 10px;
-    /* Space from the left */
 }
 
 .scrollButton.right {
     right: 10px;
-    /* Space from the right */
 }
+
 
 .cardSection {
     display: flex;
     justify-content: space-around;
     margin: 40px 0;
-    padding: 0 20px;
-    /* Add padding to ensure cards do not touch edges */
+    gap: 20px;
 }
 
 .card {
-    background-color: rgba(255, 255, 255, 0.8);
-    /* Slightly transparent white background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
     border-radius: 10px;
     padding: 20px;
-    flex: 1;
-    margin: 0 10px;
-    max-width: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     text-align: center;
-    position: relative;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    flex: 1;
+    max-width: 300px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
 }
 
 .card:hover {
@@ -131,72 +83,57 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-.card h2 {
-    margin-bottom: 10px;
-    font-size: 1.5rem;
-}
-
-.card p {
-    color: #555;
-    font-size: 1rem;
-}
-
-/* New styles for Legacy Jersey Section */
 .legacySection {
-    margin-top: 40px;
-    padding: 0 20px;
-    width: 100%;
+    margin: 40px 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.legacySection h2 {
+.legacyTitle {
     text-align: center;
+    font-size: 1.8em;
     margin-bottom: 20px;
+    color: #333;
 }
 
 .legacyJerseyRow {
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    /* Allow horizontal scrolling if needed */
+    flex-wrap: wrap;
     gap: 20px;
-    justify-content: flex-start;
-    /* Align items to the start */
-    height: 8cm;
-    /* Set height to 8cm */
-    padding: 10px 20px;
-    background-color: #f9f9f9;
-    /* Background color to differentiate the section */
-    width: 100vw;
-    /* Full width of the viewport */
+    justify-content: center;
 }
 
 .jerseyCard {
-    background: white;
+    background: #ffffff;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 10px;
+    padding: 15px;
     text-align: center;
     width: 200px;
-    /* Adjust to match the dimensions in new-drops.tsx */
-    height: 300px;
-    /* Adjust to match the dimensions in new-drops.tsx */
-    flex-shrink: 0;
-    /* Prevent shrinking when scrolling */
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
-.jerseyCard h3 {
-    margin: 10px 0 5px;
+.jerseyCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.cardImage {
+    border-radius: 8px;
+}
+
+.cardTitle {
     font-size: 1em;
-    /* Adjust font size to fit the card */
+    margin: 10px 0;
+    font-weight: bold;
+    color: #333;
 }
 
-.jerseyCard p {
-    margin-bottom: 10px;
-    font-size: 0.9em;
-    /* Adjust font size to fit the card */
+.cardPrice {
+    color: #777;
+    margin-bottom: 15px;
 }
 
 .addToCartButton {
@@ -207,22 +144,28 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: 0.9em;
-    /* Adjust font size for consistency */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
 }
 
 .addToCartButton:hover {
     background-color: #005bb5;
 }
 
-/* Footer Styles */
-.footer {
-    background-color: #111;
-    color: #fff;
-    padding: 20px 40px;
-    text-align: center;
-    border-top: 1px solid #333;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    /* Ensure footer is full width and at the bottom */
+.viewMoreButton {
+    display: block;
+    margin: 30px auto;
+    padding: 10px 20px;
+    background-color: #0070f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.viewMoreButton:hover {
+    background-color: #005bb5;
 }
